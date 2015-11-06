@@ -3,7 +3,7 @@ Tumble Bake V1.0
 
 Tumble Bake is a comprehensive Framework for Tumblr. Includes pretty much everything you'll need to start building your own theme.
 
-*Please Note: JS and CSS are hosted on https://cdnjs.com. Suggested usage is to download and host on your own servers or upload to [Tumblr File Upload](https://www.tumblr.com/themes/upload_static_file)*
+*Please Note: JS and CSS are hosted on [CDNJS](https://cdnjs.com) Suggested usage is to download and host on your own servers or upload to [Tumblr File Upload](https://www.tumblr.com/themes/upload_static_file)*
 
 ## Features
 - Supports all Post Types
