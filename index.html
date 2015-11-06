@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="{block:English}en{/block:English}{block:German}de{/block:German}{block:French}fr{block:French}{block:Italian}it{/block:Italian}{block:Japanese}ja{/block:Japanese}{block:Turkish}tr{/block:Turkish}{block:Spanish}es{/block:Spanish}{block:Russian}ru{/block:Russian}{block:Polish}pl{/block:Polish}{block:PortuguesePT}pt{/block:PortuguesePT}{block:PortugueseBR}pt-br{/block:PortugueseBR}{/block:Dutch}nl{/block:Dutch}{block:Korean}ko{/block:Korean}">
+
+    <head>
+        <title>{Title}</title>
+
+        <link rel="canonical" href="{BlogURL}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Wave Creative">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+
+        <!-- ICONS -->
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+
+        <!-- RSS FEED -->
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+        <!-- THEME OPTIONS -->
+        <meta name="text:Google Analytics ID" content="">
+        <meta name="text: Google Font" content="">
+        <meta name="text:Disqus Shortname" content="" />
+        <!-- Booleans Example {block:IfShowPeopleIFollow}Content Here{/block:IfShowPeopleIFollow}-->
+        <meta name="if:Show People I Follow" content="1">
+        <!-- Drop Down Example {select:Layout} -->
+        <meta name="select:Layout" content="regular" title="Regular">
+        <meta name="select:Layout" content="narrow" title="Narrow">
+        <meta name="select:Layout" content="grid" title="Grid">
+        <!-- Custom Text Example {block:IfFlickrUsername}{text:Flickr Username}{/block:IfFlickrUsername}-->
+        <meta name="text:Flickr Username" content="">
+        <!-- Custom Image Example {block:IfAboutPhoto}{image:About Photo}{/block:IfAboutPhoto}-->
+        <meta name="image:About Photo" content="">
+        <!-- Color Example #background { color: {color:Background} };-->
+        <meta name="color:Background" content="">
+
+        <!-- GOOGLE FONTS -->
+        <link href="http://fonts.googleapis.com/css?family={text:Google Font}' rel='stylesheet' type='text/css">
+
+        <!-- STYLESHEETS
+             Upload more stylesheets at
+             http://www.tumblr.com/themes/upload_static_file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+
+        <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <style>
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed,
+            figure, figcaption, footer, header, hgroup,
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+            	margin: 0;
+            	padding: 0;
+            	border: 0;
+            	font-size: 100%;
+            	font: inherit;
+            	vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article, aside, details, figcaption, figure,
+            footer, header, hgroup, menu, nav, section {
+            	display: block;
+            }
+            body {
+            	line-height: 1;
+            }
+            ol, ul {
+            	list-style: none;
+            }
+            blockquote, q {
+            	quotes: none;
+            }
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+            	content: '';
+            	content: none;
+            }
+            table {
+            	border-collapse: collapse;
+            	border-spacing: 0;
+            }
+
+            {CustomCSS}
+        </style>
+    </head>
+
+    <body>
+        <header role="banner">
+            <h1><a href="{BlogURL}">{Title}</a></h1>
+
+            {block:Description}
+                <p>{Description}</p>
+            {/block:Description}
+
+            <nav role="navigation">
+                <ul>
+                    <li><a href="/ask">Ask</a></li>
+                    <li><a href="/archive">{lang:Archive}</a></li>
+                    <li><a href="/random">{lang:Random}</a></li>
+                    <li><a href="{RSS}">{lang:Subscribe}</a></li>
+                    {block:HasPages}
+                        {block:Pages}
+                            <li><a href="{URL}">{Label}</a></li>
+                        {/block:Pages}
+                    {/block:HasPages}
+                </ul>
+            </nav>
+
+            <form role="search" action="/search" method="get">
+                <input role="textbox" type="text" name="q" value="{SearchQuery}">
+                <input role="button" type="submit" value="{lang:Search}">
+            </form>
+        </header>
+
+        <main role="main" class="posts {TagsAsClasses}">
+            {block:Posts}
+
+                {block:Text}
+                    <article role="article" class="post text">
+                        {block:Title}
+                            <h2><a href="{Permalink}">{Title}</a></h2>
+                        {/block:Title}
+
+                        <div class="body">{Body}</div>
+                    </article>
+                {/block:Text}
+
+                {block:Photo}
+                    <article role="article"  class="post photo">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}">
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+
+                        {block:Exif}
+                            <ul class="exif">
+                                {block:Camera}<li>Camera: {Camera}</li>{/block:Camera}
+                                {block:Aperture}<li>Aperture: {Aperture}</li>{/block:Aperture}
+                                {block:Exposure}<li>Exposure: {Exposure}</li>{/block:Exposure}
+                                {block:FocalLength}<li>FocalLength: {FocalLength}</li>{/block:FocalLength}
+                            </ul>
+                        {/block:Exif}
+
+                        {block:HighRes}
+                            <div class="highres"><a href="{PhotoURL-HighRes}" {Target}>{lang:View high resolution}</a></div>
+                        {/block:HighRes}
+                    </article>
+                {/block:Photo}
+
+                {block:Panorama}
+                    <article role="article" class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">
+                        {LinkCloseTag}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+
+                        {block:Exif}
+                            <ul class="exif">
+                                {block:Camera}<li>Camera: {Camera}</li>{/block:Camera}
+                                {block:Aperture}<li>Aperture: {Aperture}</li>{/block:Aperture}
+                                {block:Exposure}<li>Exposure: {Exposure}</li>{/block:Exposure}
+                                {block:FocalLength}<li>FocalLength: {FocalLength}</li>{/block:FocalLength}
+                            </ul>
+                        {/block:Exif}
+                    </article>
+                {/block:Panorama}
+
+                {block:Photoset}
+                    <article role="article"  class="post photoset">
+                        <figure class="post-body-fluid photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+                            {block:Photos}
+                                <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} width="{PhotoWidth-500}" height="{PhotoHeight-500}" {block:Caption}alt="{Caption}"{/block:Caption}>
+                            {/block:Photos}
+                        </figure>
+                    </article>
+                {/block:Photoset}
+
+                {block:Quote}
+                    <article role="article"  class="post quote">
+                        <blockquote>{Quote}</blockquote>
+
+                        {block:Source}
+                            <cite>{Source}</cite>
+                        {/block:Source}
+                    </article>
+                {/block:Quote}
+
+                {block:Link}
+                    <article role="article" class="post link">
+                        <a href="{URL}" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </article>
+                {/block:Link}
+
+                {block:Chat}
+                    <article role="article"  class="post chat">
+                        {block:Title}
+                            <h2><a href="{Permalink}">{Title}</a></h2>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}<span class="label">{Label}</span>{/block:Label}{Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </article>
+                {/block:Chat}
+
+                {block:Video}
+                    <article role="article"  class="post video">
+                        <!-- {VideoEmbed-500} is the same as {Vidoe-500} but without the lightbox effect for directly uploaded videos -->
+
+                        {Video-500}
+
+                        {VideoEmbed-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+
+                        {block:PlayCount}
+                            <div class="play_count">{PlayCountWithLabel}</div>
+                        {/block:PlayCount}
+                    </article>
+                {/block:Video}
+
+                {block:Audio}
+                    <article role="article"  class="post audio">
+                        {block:AudioEmbed}{AudioEmbed-500}{/block:AudioEmbed}
+
+                        {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+
+                        {block:AlbumArt}
+                            <div class="album_art"><a href="{AlbumArtURL}"><img src="{AlbumArtURL}"></a></div>
+                        {/block:AlbumArt}
+
+                        <ul class="album_info">
+                            {block:Artist}<li><strong>Artist:</strong> {Artist}</li>{/block:Artist}
+                            {block:TrackName}<li><strong>Track:</strong> {TrackName}</li>{/block:TrackName}
+                            {block:Album}<li><strong>Album:</strong> {Album}</li>{/block:Album}
+                        </ul>
+
+                        {block:ExternalAudio}
+                            <div class="download"><a href="{ExternalAudioURL}">Download</a></div>
+                        {/block:ExternalAudio}
+
+                        {block:PlayCount}
+                            <div class="play_count">{PlayCountWithLabel}</div>
+                        {/block:PlayCount}
+                    </article>
+                {/block:Audio}
+
+                {block:Answer}
+                    <article role="article"  class="post answer">
+                        <!-- Asker/Answerer Portrait Size:
+                             16, 24, 30, 40, 48, 64, 96, 128 -->
+
+                        <img src="{AskerPortraitURL-40}" alt="Asked by">{lang:Asker asked 2}: <a href="{Permalink}">{Question}</a>
+
+                        {block:Answerer}
+                            <img src="{AnswererPortraitURL-40}" alt="Answered by">{Answerer} {lang:Answer}: {Answer}
+                        {/block:Answerer}
+
+                        {Replies}
+                    </article>
+                {/block:Answer}
+
+                <footer>
+                    {block:ContentSource}
+                        <div class="source"><a href="{SourceURL}">{lang:Source}:
+                            {block:SourceLogo}
+                                <img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}">
+                            {/block:SourceLogo}
+
+                            {block:NoSourceLogo}
+                                {SourceTitle}
+                            {/block:NoSourceLogo}
+                        </a></div>
+                    {/block:ContentSource}
+
+                    <!-- {PostAuthorName} {PostAuthorTitle} {PostAuthorURL} {PostAuthorPortraitURL-16} 24, 30, 40 48, 64, 96, 128 -->
+
+                    {block:HasTags}
+                        <ul class="tags">
+                            {block:Tags}
+                                <li><a href="{TagURL}">#{Tag}</a></li>
+                            {/block:Tags}
+                        </ul>
+                    {/block:HasTags}
+
+                    {block:Date}
+                        <!-- Date Formats:
+                             Day: {DayOfMonth} {DayOfMonthWithZero}
+                             Week: {DayOfWeek} {ShortDayOfWeek} {DayOfWeekNumber}
+                             Month: {Month} {ShortMonth} {MonthNumber} {MonthNumberWithZero}
+                             Year: {Year} {ShortYear}
+                             Other: {DayOfMonthSuffix} {DayOfYear} {WeekOfYear}
+                             Time: {AmPm} {CapitalAmPm} {12Hour} {24Hour} {12HourWithZero} {24HourWithZero} {Minutes} {Seconds} {Beats}
+                             Other Time: {TimeAgo} - Contextual time. -->
+
+                        <div class="date"><a href="{Permalink}">{DayOfMonthWithZero}.{MonthNumberWithZero}.{Year}</a></div>
+                    {/block:Date}
+
+                    {block:NoteCount}
+                        <!-- {NoteCount} / {NoteCountWithLabel} -->
+                        <div class="note_count"><a href="{Permalink}#notes">{NoteCountWithLabel}</a></div>
+                    {/block:NoteCount}
+
+                    <div class="comment_count">08 Comments</div>
+
+                    <ul class="buttons">
+                        <!-- Button Color Options: grey, white, black, Size Options: up to 100 px -->
+                        <li>{ReblogButton color="grey size="15"}</li>
+                        <li>{LikeButton color="grey" size="15"}</li>
+                    </ul>
+
+                    {block:PermalinkPage}
+                        <div class="share">
+                            <ul>
+                                <li><a href="http://twitter.com/intent/tweet?status={Title}+{ShortURL}" target="_blank">Twitter</li>
+                                <li><a href="http://pinterest.com/pin/create/bookmarklet/?media=[MEDIA]&url={ShortURL}&is_video=false&description={Title}" target="_blank">Pinterest</a></li>
+                                <li><a href="http://www.facebook.com/sharer/sharer.php?u={ShortURL}&title={Title}" target="_blank">Facebook</a></li>
+                                <li><a href="https://plus.google.com/share?url={ShortURL}" target="_blank">Google+</a></li>
+                            </ul>
+                        </div>
+
+                        {block:PermalinkPagination}
+                            <div class="pagination">
+                                <nav role="navigation">
+                                    <ul>
+                                        {block:PreviousPost}
+                                            <li><a href="{PreviousPost}">&#171; {lang:Previous post}</a></li>
+                                        {/block:PreviousPost}
+                                        {block:NextPost}
+                                            <li><a href="{NextPost}">{lang:Next post} &#187;</a></li>
+                                        {/block:NextPost}
+                                    </ul>
+                                </nav>
+                            </div>
+                        {/block:PermalinkPagination}
+
+                        <div class="comments">
+                            <!-- EMBED -->
+                        </div>
+
+                        {block:PostNotes}
+                            <div class="notes">
+                                <!-- {PostNotes-16} {PostNotes-64} Avatar Size-->
+                                {PostNotes}
+                            </div>
+                        {/block:PostNotes}
+                    {/block:PermalinkPage}
+                </footer>
+
+                <!-- Tag Pages -->
+                {block:TagPage}
+                    <h2>{lang:Posts tagged Tag 3} "{Tag}"</h2>
+                {/block:TagPage}
+
+                <!-- Day Pages -->
+                {block:DayPage}
+                    <h2>{DayOfMonth} {Month} {Year}</h2>
+
+                    {block:DayPagination}
+                        <div class="pagination">
+                            <nav role="navigation">
+                                <ul>
+                                    {block:PreviousDayPage}
+                                        <li><a href="{PreviousDayPage}">&#171; {lang:Previous day}</a></li>
+                                    {/block:PreviousDayPage}
+                                    {block:NextDayPage}
+                                        <li><a href="{NextDayPage}">{lang:Next day} &#187;</a></li>
+                                    {/block:NextDayPage}
+                                </ul>
+                            </nav>
+                        </div>
+                    {/block:DayPagination}
+                {/block:DayPage}
+
+                <!-- Search Pages -->
+                {block:SearchPage}
+                    <h2>{lang:Found SearchResultCount results for SeachQuery 2}</h2>
+                {/block:SearchPage}
+
+                {block:NoSearchResults}
+                    <h2>{lang:No search results SearchQuery}</h2>
+                    <form role="search" action="/search" method="get">
+                        <input role="textbox" type="text" name="q" value="{SearchQuery}">
+                        <input role="button" type="submit" value="{lang:Search}">
+                    </form>
+                {/block:NoSearchResults}
+
+                <!-- Disqus Comment Count -->
+                {block:IndexPage}
+                    <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+                    <script type="text/javascript">
+                        var disqus_shortname = '{text:Disqus Shortname}';
+
+                        (function () {
+                            var s = document.createElement('script'); s.async = true;
+                            s.type = 'text/javascript';
+                            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+                        }());
+                    </script>
+                {/block:IndexPage}
+
+            {/block:Posts}
+        </main>
+
+        <!-- Disqus Code -->
+        {block:IfDisqusShortname}
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = '{text:Disqus Shortname}'; // Required - Enter shortname in Tumblr Theme Options
+                var disqus_url = '{Permalink}';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        {/block:IfDisqusShortname}
+
+        {block:Following}
+            <div class="following">
+                <ul>
+                    {block:Followed}
+                        <!-- Portrain sizes: 16, 24, 30, 40, 48, 64, 96, 128 -->
+                        <li><img src="{FollowedPortraitURL-40}"><a href="{FollowedURL}">{FollowedName}</a></li>
+                    {/block:Followed}
+                </ul>
+            </div>
+        {/block:Following}
+
+        <footer>
+            {block:Pagination}
+                <div class="pagination">
+                    <nav role="navigation">
+                        <ul>
+                            {block:PreviousPage}
+                                <li><a href="{PreviousPage}">&#171; {lang:Previous}</a></li>
+                            {/block:PreviousPage}
+                            {block:NextPage}
+                                <li><a href="{NextPage}">{lang:Next} &#187;</a></li>
+                            {/block:NextPage}
+                        </ul>
+                    </nav>
+                </div>
+            {/block:Pagination}
+        </footer>
+
+        <footer role="contentinfo" class="copyright">
+            <span>&#169;{CopyrightYears} TumbleBake by <a href="http://www.wearewave.com/">Wave</a></span>
+            <span>{lang:Powered by Tumblr 2}</span>
+        </footer>
+
+        <!-- SCRIPTS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoset-grid/1.0.1/jquery.photoset-grid.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.3/jquery.colorbox-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.photoset-grid').photosetGrid({
+            		highresLinks: true,
+            		rel: $('.photoset-grid').attr('data-id'),
+            		gutter: '10px',
+
+                    onComplete: function(){
+                        $('.photoset-grid-lightbox').attr('style', '');
+                        $('.photoset-grid-lightbox a').colorbox({
+                            photo: true,
+                            scalePhotos: true,
+                            maxHeight:'90%',
+                            maxWidth:'90%'
+                        });
+                    }
+            	});
+
+                $('.photoset-grid').each(function() {
+            		$(this).magnificPopup({
+            			delegate: 'a', // the container for each your gallery items
+            			type: 'image',
+            			gallery:{enabled:true},
+            			// Delay in milliseconds before popup is removed
+            			removalDelay: 300,
+
+            			// Class that is added to popup wrapper and background
+            			// make it unique to apply your CSS animations just to this exact popup
+            			mainClass: 'mfp-fade'
+            		});
+            	});
+            });
+        </script>
+
+        <!-- GOOGLE ANALYTICS -->
+        {block:IfGoogleAnalyticsID}
+            <script>
+            var _gaq = [
+                ['_setAccount', '{text:Google Analytics ID}'],
+                ['_trackPageview']
+            ];
+            (function(d, t) {
+                var g = d.createElement(t),
+                    s = d.getElementsByTagName(t)[0];
+                g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g, s)
+            }(document, 'script'));
+            </script>
+        {/block:IfGoogleAnalyticsID}
+    </body>
+</html>
